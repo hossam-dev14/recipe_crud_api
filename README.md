@@ -8,7 +8,6 @@ In this repository, I have created CRUD API operation using Express and NoSql da
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
  ### 1. Download the Repository
-
 ```bash
 # Clone this repository
 $ git clone https://github.com/hossam-dev14/recipe_db.git
@@ -20,9 +19,10 @@ $ npm install
 ```
 
 ### 3. Configure your Atlas Credentials
+Replace the placeholder text with the connection string for your Atlas cluster. For more information on finding the connection string, see (Connect via Driver) in the Atlas documentation.
 ```bash
-# Run the app
-$ npm start
+# 
+const uri = "<Your Atlas Connection String>";
 ```
 
 ### 4. Run the Project
