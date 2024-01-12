@@ -20,7 +20,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/your-user-name/your-project-name
+$ git [clone https://github.com/hossam-dev14/recipe_db.git]
 
 # Install dependencies
 $ npm install
@@ -36,6 +36,5 @@ $ npm start
 - [Node.js](https://nodejs.org/)
 
 ## Contact
-- Gmail [hossam-dev14](mailto:hossamdev14@gmail.com)
 - Website [hossam-dev14](https://hossam-dev14.github.io/)
-- Twitter [@hossam-dev](https://twitter.com/hossam-dev)
+
