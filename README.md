@@ -21,7 +21,7 @@ $ npm install
 ### 3. Configure your Atlas Credentials
 Replace the placeholder text with the connection string for your Atlas cluster. For more information on finding the connection string, see [Connect via Driver](https://www.mongodb.com/docs/atlas/driver-connection/) in the Atlas documentation.
 ```bash
-const uri = "<Your Atlas Connection String>";
+const MONGO_URI = "<Your Atlas Connection String>";
 ```
 
 ### 4. Run the Project
