@@ -1,0 +1,29 @@
+const dotenv = require('dotenv');
+
+const express = require("express");
+const bodyParser = require('body-parser');
+const mongoose = require("mongoose");
+const app = express();
+const recipeRoutes = require('./routes/recipes.js');
+
+dotenv.config();
+const mongoString = process.env.ATLAS_URI;
+
+//Connect API to MongoDB ATLAS
+mongoose.connect(mongoString)
+  .then(() => console.log('Connected to MongoDB'))
+  .catch((err) => console.error('MongoDB connection error:', err))
+
+// Prevent CORS Errors.
+// CORS Stands for Cross-Origin Resource Sharing.
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+  next();
+});
+
+app.use(bodyParser.json());
+app.use('/api/recipes', recipeRoutes);
+
+module.exports = app;
