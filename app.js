@@ -1,10 +1,10 @@
 const dotenv = require('dotenv');
-
 const express = require("express");
 const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 const app = express();
-const recipeRoutes = require('./routes/recipes.js');
+const recipeRoutes = require('./routes/recipes');
+const userRoutes = require("./routes/users");
 
 dotenv.config();
 const mongoString = process.env.ATLAS_URI;
@@ -25,5 +25,7 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 app.use('/api/recipes', recipeRoutes);
+app.use('/api/users', userRoutes);
+
 
 module.exports = app;
