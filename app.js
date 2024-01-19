@@ -2,9 +2,11 @@ const dotenv = require('dotenv');
 const express = require("express");
 const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
-const app = express();
 const recipeRoutes = require('./routes/recipes');
 const userRoutes = require("./routes/users");
+var { expressjwt: jwt } = require("express-jwt");
+
+const app = express();
 
 dotenv.config();
 const mongoString = process.env.ATLAS_URI;
@@ -14,6 +16,8 @@ mongoose.connect(mongoString)
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('MongoDB connection error:', err))
 
+
+// ********* Middlewares
 // Prevent CORS Errors.
 // CORS Stands for Cross-Origin Resource Sharing.
 app.use((req, res, next) => {
@@ -23,9 +27,26 @@ app.use((req, res, next) => {
   next();
 });
 
+// Middlewares
+app.use(authJwt())
 app.use(bodyParser.json());
 app.use('/api/recipes', recipeRoutes);
 app.use('/api/users', userRoutes);
+
+
+
+
+// Protecting the API and Authentication JWT Middleware
+function authJwt() {
+  const secret = process.env.JWT_SECRET;
+  return jwt({
+      secret,
+      algorithms: ['HS256']
+  })
+}
+
+
+
 
 
 module.exports = app;
