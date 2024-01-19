@@ -6,6 +6,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 
+
 // ************* SignUp *************
 const userSignup = (async (req, res) => {
     const {firstName, lastName, email, password} = req.body;
@@ -66,13 +67,36 @@ const userLogin = (async (req, res, next) => {
         token: token
         }
     )
-
-    // next(new CustomError(err.message, "Unable to Login"))
-
 });
+
+// ************* Retrive all Users  *************
+const getUsers = (async (req, res) => {
+    const userList = await User.find().select('-password');
+    // .select('-password'); // Exclude the password
+    // .select('name phone email'); // Include the only name, phone and email in this api end point
+    if(!userList) {
+        res.status(500).json({message:'The users was not found!'})
+    }
+    res.status(200).json({ userList })
+});
+
+
+// ************* Retrive User by ID  *************
+const getUser = (async (req, res) => {
+    const user = await User.findById(req.params.id).select('-password');
+    if(!user) {
+        res.status(500).json({message: 'The user with the given ID was not found!'})
+    }
+    res.status(200).json({ user })
+});
+
+
+
 
 
 module.exports = {
     userSignup,
-    userLogin
+    userLogin,
+    getUsers,
+    getUser
 }
