@@ -1,7 +1,7 @@
 
 <h1 align="center">Recipe API</h1>
 
-In this repository, I have created CRUD API operation using Express and NoSql database.This code includes nodejs, expressjs, mongodb, mongoose etc.
+In this repository, I have created CRUD API operation using Express and NoSql database, and i added authontication & authorization. This code includes nodejs, expressjs, mongodb, mongoose etc.
 
 ## How To Use
 
@@ -29,7 +29,8 @@ const MONGO_URI = "<Your Atlas Connection String>";
 npm start
 ```
 
-
-## Contact
-- Website [hossam-dev14](https://hossam-dev14.github.io/)
-
+## 5. Endpoints
+- /api/recipes: : GET, POST
+- /api/recipes/:id : GET, PUT, DELETE
+- /api/users/: : POST, GET
+- /api/users/:id : GET
