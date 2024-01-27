@@ -2,6 +2,7 @@
 <h1 align="center">Recipe API</h1>
 
 In this repository, I have created CRUD API operation using Express and NoSql database, and i added authontication & authorization. This code includes nodejs, expressjs, mongodb, mongoose etc.
+<<<<<<< HEAD
 
 ## Features
 - Uses [npm](https://npmjs.com)
@@ -12,6 +13,8 @@ In this repository, I have created CRUD API operation using Express and NoSql da
 - Authentication and Authorization with JWT
 - Request validation with [joi](https://github.com/hapijs/joi)
 - API documentation generation with Swagger
+=======
+>>>>>>> 156df6b9224829072121a6a3b2b6595ca0c7f586
 
 ## How To Use
 
@@ -40,6 +43,7 @@ const MONGO_URI = "<Your Atlas Connection String>";
 npm start
 ```
 
+<<<<<<< HEAD
 ## API Endpoints
 
 ### User Routes
@@ -54,3 +58,10 @@ npm start
 
 Authors
 - [hossam-dev14](https://hossam-dev14.github.io/)
+=======
+## 5. Endpoints
+- /api/recipes: : GET, POST
+- /api/recipes/:id : GET, PUT, DELETE
+- /api/users/: : POST, GET
+- /api/users/:id : GET
+>>>>>>> 156df6b9224829072121a6a3b2b6595ca0c7f586
