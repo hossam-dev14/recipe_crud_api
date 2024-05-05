@@ -59,8 +59,8 @@ npm start
 
 ## Recipe CRUD API documented with [Swagger UI](https://recipe-rest-api-fytu.onrender.com/api-docs/)
 
-### Preveiw:
-[Recipes Restfull API application documented with Swagger UI](https://github.com/hossam-dev14/recipe_crud_api/assets/73648971/1bb68823-cb99-4993-91c9-f431213b5fbb)
+### Preveiw Image
+![Recipes Restfull API application documented with Swagger UI](https://github.com/hossam-dev14/recipe_crud_api/assets/73648971/1bb68823-cb99-4993-91c9-f431213b5fbb)
 
 
 ## Authors
