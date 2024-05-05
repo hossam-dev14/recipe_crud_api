@@ -6,9 +6,11 @@ const swagger = require('./helpers/swagger');
 const app = require("./app");
 dotenv.config();
 
+// Prevent CORS Errors.
+// CORS Stands for Cross-Origin Resource Sharing.
 // Allow api call
 const corsOptions = {
-  origin: "http://localhost:5050"
+  origin: process.env.API_URL
 };
 
 app.use(cors(corsOptions));
@@ -22,3 +24,5 @@ const server = http.createServer(app);
 server.listen(process.env.PORT || 5050, () => {
   console.log("Server is running on", 5050);
 });
+
+

@@ -1,10 +1,11 @@
-const dotenv = require('dotenv');
-const express = require("express");
-const bodyParser = require('body-parser');
-const mongoose = require("mongoose");
-const recipeRoutes = require('./routes/recipes');
-const userRoutes = require("./routes/users");
-var { expressjwt: jwt } = require("express-jwt");
+const dotenv = require('dotenv'),
+      express = require("express"),
+      bodyParser = require('body-parser'),
+      mongoose = require("mongoose"),
+      recipeRoutes = require('./routes/recipes'),
+      userRoutes = require("./routes/users"),
+      authJwt = require("./middlewares/jwt"),
+      errorHandler = require("./middlewares/errors_handler");
 
 const app = express();
 
@@ -17,7 +18,7 @@ mongoose.connect(mongoString)
   .catch((err) => console.error('MongoDB connection error:', err))
 
 
-// ********* Middlewares
+// ********* Middlewares ***********
 // Prevent CORS Errors.
 // CORS Stands for Cross-Origin Resource Sharing.
 app.use((req, res, next) => {
@@ -27,41 +28,12 @@ app.use((req, res, next) => {
   next();
 });
 
-// Middlewares
-app.use(authJwt())
+
 app.use(bodyParser.json());
+app.use(authJwt())
 app.use('/api/recipes', recipeRoutes);
 app.use('/api/users', userRoutes);
 app.use(errorHandler)
-
-// Error Handling function
-function errorHandler(err, req, res, next) {
-  if (err.name === 'UnauthorizedError') {
-    // JWT authentication error
-    return res.status(401).json({message: "This data is not authorized!"});
-  }
-
-  if (err.name === "ValidationError") {
-    // Validation error
-    return res.status(401).json({message: err});
-  }
-
-  // Default to 500 server
-  return res.status(500).json(err);
-}
-
-
-
-// Protecting the API and Authentication JWT Middleware
-function authJwt() {
-  const secret = process.env.JWT_SECRET;
-  return jwt({
-      secret,
-      algorithms: ['HS256']
-  })
-}
-
-
 
 
 
