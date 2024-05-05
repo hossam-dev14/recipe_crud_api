@@ -7,16 +7,9 @@ const { userSignup, userLogin, getUsers, getUser } = require("../controllers/use
 /****** POST Methods */
 /**
  * @openapi
- * components:
- *   securitySchemes:
- *     bearerAuth:
- *       type: http
- *       scheme: bearer
  * paths:
  *   '/api/users/signup':
- *     post:
- *       security:
- *         - bearerAuth: [] 
+ *     post: 
  *       tags:
  *         - User Controller
  *       summary: Create a user
@@ -55,19 +48,11 @@ const { userSignup, userLogin, getUsers, getUser } = require("../controllers/use
  *           description: Server Error
  */
 
-
 /**
  * @openapi
- * components:
- *   securitySchemes:
- *     bearerAuth:
- *       type: http
- *       scheme: bearer
  * paths:
  *   '/api/users/login':
  *     post:
- *       security:
- *         - bearerAuth: [] 
  *       tags:
  *         - User Controller
  *       summary: User login
@@ -97,7 +82,6 @@ const { userSignup, userLogin, getUsers, getUser } = require("../controllers/use
  *         500:
  *           description: Server Error
  */
-
 
 /****** GET Methods */
 /**
@@ -155,14 +139,9 @@ const { userSignup, userLogin, getUsers, getUser } = require("../controllers/use
  *           description: Server Error
  */
 
-
 router.post("/signup", userSignup);
 router.post("/login",  userLogin);
 router.get("/",  getUsers);
 router.get("/:id",  getUser);
-
-
-
-
 
 module.exports = router;

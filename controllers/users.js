@@ -33,7 +33,7 @@ const userSignup = (async (req, res) => {
     if (existUser) {
         res.status(409).json({
           message:
-            'This email already exists, enter a new email!',
+            'This email already exist, enter a new email!',
         })
         return
     }
@@ -89,7 +89,7 @@ const userLogin = (async (req, res, next) => {
             id: existingUser._id
         },
         process.env.JWT_SECRET,
-        {expiresIn: '1w'}
+        {expiresIn: '1d'}
     )
     res.status(200).json({
         message: `Welcome to your account!!`,
