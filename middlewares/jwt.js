@@ -9,11 +9,11 @@ function authJwt() {
     })
     .unless({
         path: [
-            // {url: /\/api\/recipes(.*)/ , methods: ['GET', 'OPTIONS'] },
             { url: /\/api\/recipes(.*)/, methods: ['GET', 'OPTIONS'] },
             { url: /\/api-docs/, methods: ['GET', 'OPTIONS'] },
-            '/users/login',
-            '/users/signup',
+            '/api/users/signup',
+            '/api/users/login'
+
         ]
     })
 }
