@@ -1,7 +1,10 @@
 
-<h1 align="center">Recipe API</h1>
+<h1 align="center">Recipe Restfull API</h1>
 
 In this repository, I have created CRUD API operation using Express and NoSql database, and i added authontication & authorization. This code includes nodejs, expressjs, mongodb, mongoose etc.
+
+[Live Recipe API server](https://recipe-rest-api-fytu.onrender.com/)
+
 
 ## Features
 - Uses [npm](https://npmjs.com)
@@ -54,7 +57,10 @@ npm start
 - /api/recipes/:id: GET, PUT, DELETE
 
 
-## Test it on  http://localhost:5050/api-docs/
+## Recipe CRUD API documented with [Swagger UI](https://recipe-rest-api-fytu.onrender.com/api-docs/)
+
+### Preveiw:
+[Recipes Restfull API application documented with Swagger UI](https://github.com/hossam-dev14/recipe_crud_api/assets/73648971/1bb68823-cb99-4993-91c9-f431213b5fbb)
 
 
 ## Authors
