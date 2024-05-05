@@ -15,7 +15,7 @@ const options = {
         description: 'A simple Recipes CRUD API application made with Express and documented with Swagger',
         contact: {
             name: "Recipe CRUD API",
-            url: "https://github.com/hossam-dev14/recipe_crud_api/"
+            url: "https://recipe-rest-api-fytu.onrender.com/"
         },
         version: '1.0.0',
       },
